@@ -1,0 +1,205 @@
+Chapter 10 Exercises
+
+10.1
+
+fname = input('Enter the file name: ')
+try:
+    fhand = open(fname)
+except:
+    print('File cannot be opened:', fname)
+    exit()
+counts = dict()
+for line in fhand:
+    words = line.split()
+    if not len(words) == 0 and words[0] == 'From' : 
+        if words[1] not in counts:
+            counts[words[1]] = 1
+        else:
+            counts[words[1]] += 1
+
+# Sort the dictionary by value
+lst = list()
+for key, val in counts.items():
+    lst.append( (val, key) )
+lst.sort(reverse=True)
+
+for key, val in lst[:3] :   # I changed to 1st 3 / replace 3 with 1 to get only top 1
+    print(key, val)
+    
+Output:
+C:\Python34>test.py
+Enter the file name: mbox.txt
+195 zqian@umich.edu
+161 mmmay@indiana.edu
+158 cwen@iupui.edu
+
+C:\Python34>test.py
+Enter the file name: mbox-short.txt
+5 cwen@iupui.edu
+4 zqian@umich.edu
+4 david.horwitz@uct.ac.za
+
+C:\Python34>
+
+10.2
+
+fname = input('Enter the file name: ')
+try:
+    fhand = open(fname)
+except:
+    print('File cannot be opened:', fname)
+    exit()
+counts = dict()
+for line in fhand:
+    words = line.split()
+    if not len(words) == 0 and words[0] == 'From' : 
+        d1, d2, d3 = words[5].split(':')
+        if d1 not in counts:
+            counts[d1] = 1
+        else:
+            counts[d1] += 1
+
+# Sort the dictionary by value
+lst = list()
+for val, key in counts.items():
+    lst.append( (val, key) )
+lst.sort()
+
+for key, val in lst :
+    print(key, val)
+    
+Output:
+C:\Python34>test.py
+Enter the file name: mbox-short.txt
+04 3
+06 1
+07 1
+09 2
+10 3
+11 6
+14 1
+15 2
+16 4
+17 2
+18 1
+19 1
+
+C:\Python34>
+
+10.3
+
+fname = input('Enter the file name: ')
+try:
+    fhand = open(fname)
+except:
+    print('File cannot be opened:', fname)
+    exit()
+letters = dict()
+for line in fhand:
+    line = line.lower()
+    for x in line: 
+        if x not in 'abcdefghijklmnopqrstuvwxyz': continue
+        if x not in letters:
+            letters[x] = 1
+        else:
+            letters[x] += 1
+
+# Sort the dictionary by value
+lst = list()
+for key, val in letters.items():
+    lst.append( (val, key) )
+lst.sort(reverse = True)
+
+for key, val in lst :
+    print(key, val)
+
+Output:
+C:\Python34>test.py
+Enter the file name: mbox-short.txt
+5436 e
+5223 a
+4494 i
+4174 o
+4064 r
+4050 t
+3738 s
+3123 u
+3088 c
+2575 n
+2497 p
+2436 m
+2004 d
+1832 l
+1392 h
+1257 f
+1167 k
+1134 b
+1027 g
+997 v
+959 j
+643 y
+586 w
+482 x
+78 z
+57 q
+
+Using the set() data structure:
+fname = input('Enter the file name: ')
+try:
+    fhand = open(fname)
+except:
+    print('File cannot be opened:', fname)
+    exit()
+letters = dict()
+for line in fhand:
+    line = line.lower()
+    include = set('abcdefghijklmnopqrstuvwxyz')   # Used set() for performance
+    for x in line: 
+        if x not in include: continue
+        if x not in letters:
+            letters[x] = 1
+        else:
+            letters[x] += 1
+
+# Sort the dictionary by value
+lst = list()
+for key, val in letters.items():
+    lst.append( (val, key) )
+lst.sort(reverse = True)
+
+for key, val in lst :
+    print(key, val)
+  
+Output:
+C:\Python34>test.py
+Enter the file name: mbox.txt
+404033 e
+355337 a
+316771 i
+309157 o
+302616 t
+281859 r
+276247 s
+238115 c
+212537 u
+190902 n
+178115 m
+168447 p
+148380 d
+144889 l
+104017 h
+87160 k
+85569 b
+74757 v
+74252 f
+68698 g
+51155 j
+48157 y
+46893 w
+34011 x
+4087 q
+3795 z
+
+C:\Python34>  
+
+C:\Python34>

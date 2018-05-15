@@ -1,0 +1,67 @@
+Chapter 2: Possible Exercise Solutions 
+There is no one way to write code. We are all different in how we name our variables etc. Here is a set of solutions that will work.
+
+Exercise 2.2
+>>> name = input("What is your name? ")
+What is your name? Ivy Chu
+>>> name
+'Ivy Chu'
+
+Exercise 2.3
+>>>
+>>> hours = input('Enter hours worked: ')
+Enter hours worked: 35
+>>> rate = input('Pay rate without $: ')
+Pay rate without $: 2.75
+>>> pay = hours * rate
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: can't multiply sequence by non-int of type 'str'
+>>> hours
+'35'
+>>> int(hours)
+35
+>>> float(rate)
+2.75
+>>> pay = int(hours) * float(rate)
+>>> pay
+96.25
+>>>
+
+Better solution maybe.
+>>>
+>>> hours = int(input('Enter hours worked: '))
+Enter hours worked: 35
+>>> rate = float(input('Pay rate without $: '))
+Pay rate without $: 2.75
+>>> pay=hours*rate
+>>> pay
+96.25
+>>>
+
+Exercise 2.4
+Pretty simple and strait forward. The difference in that width/2 in version 2 would have yielded 8 – remember floor or integer division. If we really wanted that, we would hve to do width//2 as shown in the last line.
+>>>
+>>> width = 17
+>>> height = 12.0
+>>> width/2
+8.5
+>>> width/2.0
+8.5
+>>> height/3
+4.0
+>>> 1+2*5
+11
+>>> width//2
+8
+>>>
+
+Exercise 2.5
+First we Google formula to convert Celsius to Fahrenheit and get (°C) times 9/5 plus 32 or T(°F) = T(°C) × 9/5 + 32. With that info we should be able to do the following.
+>>> 
+>>> temp_C = float(input('Enter the temp in Celsius: '))
+Enter the temp in Celsius: 35
+>>> temp_F = temp_C*9/5+32
+>>> temp_F
+95.0
+>>>

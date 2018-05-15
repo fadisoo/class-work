@@ -1,0 +1,30 @@
+Chapter 11 Exercises
+
+11.1
+
+import re
+hand = open('mbox.txt')
+search = input('Enter a regular expression (Example: ^From no apostrophe): ')
+count = 0 
+for line in hand:
+    line = line.rstrip()
+    if re.search(search,line) : count = count + 1
+
+print('mbox.txt had',count,'lines that matched',search)
+
+11.2
+
+Note the question is pretty vague (or I'm just getting old) You are to capture the Revision numbers and then display ther average???  
+import re
+fname = input('Enter file: ')
+hand = open(fname)
+nums = list()
+for line in hand:
+    line = line.rstrip()
+    x = re.findall('New Revision: ([0-9]+)', line)
+    if len(x) == 1 :
+        val = float(x[0])
+        nums.append(val)
+# print('Number of revisins: ',len(nums))
+# print('Average revision: ', sum(nums)/len(nums))
+print(sum(nums)/len(nums))

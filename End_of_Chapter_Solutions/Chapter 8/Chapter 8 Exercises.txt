@@ -1,0 +1,114 @@
+Chapter 8 Exercises
+
+8.1
+
+def chop(c):
+    del c[len(c)-1]
+    del c[0]
+
+letters = ['a', 'b', 'c', 'd', 'e']
+chop(letters)
+print(letters)              <-- Proves letters has been altered
+
+C:\Python34>test.py
+['b', 'c', 'd']
+
+C:\Python34>
+
+def middle(m):
+    return m[1:len(m)-1]
+
+letters = ['a', 'b', 'c', 'd', 'e']
+rest = middle(letters)
+print(rest)
+print(letters)
+
+C:\Python34>test.py
+['b', 'c', 'd']              <-- New string rest
+['a', 'b', 'c', 'd', 'e']    <-- Proves letters has not been altered
+
+C:\Python34>
+
+8.2
+
+fname = 'mbox-short.txt'
+try:
+    fhand = open(fname)
+except:
+    print("File not found:", fname)
+    quit()
+try:
+    for line in fhand:
+        words = line.split()
+        if len(words) == 0 : continue
+        if words[0] != 'From' : continue
+        print(words[2])
+except:
+    print("File:", fname,"contains no data.")
+    quit()
+
+8.3
+
+fname = 'mbox-short.txt'
+try:
+    fhand = open(fname)
+except:
+    print("File not found:", fname)
+    quit()
+try:
+    for line in fhand:
+        words = line.split()
+        if not len(words) == 0 and words[0] == 'From' : print(words[2])
+except:
+    print("File:", fname,"contains no data.")
+    quit()
+
+8.4
+
+fname = input("Enter file name: ")
+fhandle = open(fname)
+answer = []
+for line in fhandle:
+    nlist = line.split()
+    for x in nlist: 
+        if x in answer: continue
+        answer.append(x)
+answer.sort()
+print(answer)
+
+8.5
+
+fname = 'mbox-short.txt'
+try:
+    fhand = open(fname)
+except:
+    print("File not found:", fname)
+    quit()
+count = 0
+try:
+    for line in fhand:
+        words = line.split()
+        if not len(words) == 0 and words[0] == 'From' : 
+            print(words[1])
+            count = count + 1
+except:
+    print("File:", fname,"contains no data.")
+    quit()
+print("There were", count, "lines in the file with From as the first word.")
+
+8.6
+
+mlist = []
+while True:
+    test = input("Enter a number: ")
+    if test == "done" : 
+        break
+    try:
+        num = float(test)
+    except:
+        print("Invalid input")
+        continue
+    x = mlist.append(num)
+print(mlist)
+print("Maximum:", max(mlist))
+print("Minimum:", min(mlist))

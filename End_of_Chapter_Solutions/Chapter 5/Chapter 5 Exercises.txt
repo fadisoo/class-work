@@ -1,0 +1,93 @@
+5.1 Two approaches
+count = 0
+total = 0
+while True:
+    test = input("Enter a number: ")
+    if test == "done" : 
+        break
+    try:
+        num = float(test)
+    except:
+        print("Invalid input")
+        continue
+    count = count + 1
+    total = total + num
+print("")
+print("Sum is", total)
+print("Count is", count)
+print("Average is", total/count)
+
+#output with data
+C:\Python34>5.1exercise_1.py
+Enter a number: 4
+Enter a number: 5
+Enter a number: bad data
+Invalid input
+Enter a number: 7
+Enter a number: done
+
+Sum is 16.0
+Count is 3
+Average is 5.333333333333333
+
+C:\Python34>
+
+# Another alternative for print statements
+count = 0
+total = 0
+while True:
+    test = input("Enter a number: ")
+    if test == "done" : 
+        break
+    try:
+        num = float(test)
+    except:
+        print("Invalid input")
+        continue
+    count = count + 1
+    total = total + num
+print(total, count, total/count)
+
+# Output with data.
+C:\Python34>5.1exercise_2.py
+Enter a number: 4
+Enter a number: 5
+Enter a number: bad data
+Invalid input
+Enter a number: 7
+Enter a number: done
+16.0 3 5.333333333333333
+
+C:\Python34>
+
+5.2
+largest = None
+smallest = None
+while True:
+    test = input("Enter a number: ")
+    if test == "done" : break
+    try:
+        num = float(test)
+    except:
+        print("Invalid input")
+        continue
+    if smallest is None or num < smallest:
+	    smallest = num
+    if largest is None or num > largest:
+	    largest = num    
+
+print("Maximum is", largest)
+print("Minimum is", smallest)
+
+# Output using same numbers as 5.1
+C:\Python34>test.py
+Enter a number: 4
+Enter a number: 5
+Enter a number: bad data
+Invalid input
+Enter a number: 7
+Enter a number: done
+Maximum is 7.0
+Minimum is 4.0
+
+C:\Python34>

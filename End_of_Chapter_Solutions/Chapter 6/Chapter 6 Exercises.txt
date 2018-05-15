@@ -1,0 +1,43 @@
+Chapter 6 Exercises
+
+6.1 
+fruit = 'banana'
+index = len(fruit)-1
+while index >= 0:
+    letter = fruit[index]
+    print(letter)
+    index = index - 1
+
+6.2 From beginning to end, all of the string, or banana
+
+6.3
+def count(w,l):
+    total = 0
+    for letter in w:
+        if letter == l:
+            total = total + 1
+    return total
+
+word = input("Enter the word(s) to search: ")
+letter = input("Enter the letter to search: ")
+answer = count(word,letter)
+print(answer)
+
+6.4
+fruit = "banana"
+print(fruit.count("a"))
+
+6.5
+str = 'X-DSPAM-Confidence: 0.8475'
+start = str.find(":")
+num = float(str[start+1:])
+print(num)
+
+# another alternative
+str = 'X-DSPAM-Confidence: 0.8475'
+start = str.find(":")
+target =str[start+1:]
+num = float(target)
+print(num)
+
+6.6 No output
